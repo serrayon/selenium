@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -18,21 +17,22 @@ class BaseElement(object):
         #self.driver.find_element(by= self.by, value=self.locator)
         
         element = WebDriverWait(self.driver, 10).until(
-            EC.visibilitiy_of_element_located(locator= self.locator))
+            EC.visibilitiy_of_element_located(locator= self.locator)
+        )
         # This popukates the web element we make if find itself
         self.web_element = element 
+        return None
+    
+    def click(self):
+        element = WebDriverWait(self.driver,10).until(
+            EC.element_to_be_clickable(locator=  self.locator)
+        )
+        element.click()
         return None
      
     def input_text(self, txt):
         self.web_element_send_keys(txt)
         return None 
-    
-    def click(self):
-        element = WebDriverWait(
-            self.driver,10).until(
-            EC.element_to_be_clickable(locator=  self.locator))
-        element.click()
-        return None
     
     @property
     def text(self):

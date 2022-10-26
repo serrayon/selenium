@@ -3,9 +3,6 @@ from base_element import BaseElement
 
 
 class TrainingGroundPage:
-    url = 'https://techstepacademy.com/training-groung/'
-
-    @property
     def __init__(self, driver):
         self.driver = driver
         self.url = 'https://techstepacademy.com/training-ground'
@@ -16,7 +13,6 @@ class TrainingGroundPage:
     @property
     def button1(self):
         locator =(By.ID, 'bi'),
-
         return BaseElement(
             driver = self.driver,
             by=locator[0],
