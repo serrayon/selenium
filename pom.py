@@ -1,3 +1,5 @@
+from training_ground import TrainingGround
+
 class TrainingGroundPage:
     def __init__(self, driver):
         self.driver = driver
@@ -33,7 +35,10 @@ test_value = 'it worked'
 # Test
 trng_page = TrainingGroundPage(driver=browser)
 trng_page.go()
+assert trng_page.button1.text == 'Button1'
+browser.quit()
+'''
 trng_page.type_into_input(test_value)
 txt_from_input = trng_page.get_input_text()
 assert txt_from_input == test_value, f"Test Failed: Input did not match expected ({test_value})"
-print("Test Passed.")
+print("Test Passed.")'''

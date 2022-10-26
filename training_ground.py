@@ -1,11 +1,24 @@
-class TrainingGroundPage(BasePage):
+from selenium .webdriver.common.by import By
+from base_element import BaseElement
+
+
+class TrainingGroundPage:
     url = 'https://techstepacademy.com/training-groung/'
 
     @property
+    def __init__(self, driver):
+        self.driver = driver
+        self.url = 'https://techstepacademy.com/training-ground'
+        
+    def go(self):
+        self.driver.get(self.url)
+    
+    @property
     def button1(self):
-        locator = (By.ID, 'bi')
+        locator =(By.ID, 'bi'),
+
         return BaseElement(
-            driver = sefl.driver,
-            by = locator[0]
+            driver = self.driver,
+            by=locator[0],
             value = locator[1]
-        )
+        ) 
