@@ -19,7 +19,7 @@ class BaseElement(object):
         element = WebDriverWait(self.driver, 10).until(
             EC.visibilitiy_of_element_located(locator= self.locator)
         )
-        # This popukates the web element we make if find itself
+        # This populates the web element we make it find itself
         self.web_element = element 
         return None
     
